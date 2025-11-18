@@ -39,6 +39,9 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+
+  /* Set base font stack to use Saira Condensed from Google Fonts */
+  --font-sans: 'Saira Condensed', ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
 .dark {
@@ -120,12 +123,14 @@
 }
 
 @layer base {
-  * {
+  *, :before, :after, ::backdrop {
     @apply border-border outline-ring/50;
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background;
+    font-family: "Saira Condensed", sans-serif;
+    color: #ffffff;
   }
 }
 

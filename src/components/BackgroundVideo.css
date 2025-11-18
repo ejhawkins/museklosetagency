@@ -1,0 +1,49 @@
+.bg-video-root {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1; /* behind page content */
+  pointer-events: none;
+  background: linear-gradient(180deg, #000000 0%, #1a1a1a 100%); /* neutral fallback */
+}
+
+.bg-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100vw;
+  height: 100vh;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  will-change: transform;
+  opacity: 0.95;
+  max-width: none;
+  max-height: none;
+}
+
+.bg-video-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  pointer-events: none;
+}
+
+.bg-video-content {
+  position: relative;
+  z-index: 1;
+  pointer-events: auto;
+}
+
+/* Small screens: hide video for performance and fall back to neutral background */
+@media (max-width: 768px) {
+  .bg-video {
+    display: none;
+  }
+
+  .bg-video-root {
+    background: linear-gradient(180deg, #000000 0%, #1a1a1a 100%);
+    z-index: -1;
+  }
+}
