@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
 
+// Use a runtime URL for the logo to avoid TS module import issues
+const logoUrl = new URL("../logo.png", import.meta.url).href;
+
 export function Header() {
   const [videoEnabled, setVideoEnabled] = useState<boolean>(true);
 
@@ -65,8 +68,14 @@ export function Header() {
       </div>
 
       <div className="text-center">
-        <h1 className="text-4xl mb-2">MusesKlosetAgency</h1>
-        <p className="tracking-[0.3em] text-sm">BRANDING AGENCY</p>
+        <div className="flex flex-col items-center">
+          <img
+            src={logoUrl}
+            alt="MusesKlosetAgency"
+            className="mb-2 w-48 max-w-full h-auto"
+          />
+          <p className="tracking-[0.3em] text-sm">BRANDING AGENCY</p>
+        </div>
       </div>
     </header>
   );
