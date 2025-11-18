@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-
-// Use a runtime URL for the logo to avoid TS module import issues
-const logoUrl = new URL("../logo.png", import.meta.url).href;
+import logo from "../logo.png";
+import symbolLogo from "../symbol-logo.png";
 
 export function Header() {
   const [videoEnabled, setVideoEnabled] = useState<boolean>(true);
@@ -62,19 +61,22 @@ export function Header() {
       </div>
 
       <div className="flex justify-center mb-8">
-        <div className="w-16 h-16 rounded-full border-2 border-white bg-white flex items-center justify-center">
-          <span className="text-2xl text-black">K</span>
+        <div className="w-24 h-24">
+          <img
+            src={symbolLogo}
+            alt="Symbol Logo"
+            className="w-full h-full object-contain"
+          />
         </div>
       </div>
 
       <div className="text-center">
-        <div className="flex flex-col items-center">
+        <div className="mb-4">
           <img
-            src={logoUrl}
+            src={logo}
             alt="MusesKlosetAgency"
             className="mb-2 w-48 max-w-full h-auto"
           />
-          <p className="tracking-[0.3em] text-sm">BRANDING AGENCY</p>
         </div>
       </div>
     </header>
